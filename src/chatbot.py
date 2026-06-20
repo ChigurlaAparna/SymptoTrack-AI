@@ -41,6 +41,10 @@ class ChatbotInterface:
         self.current_symptoms = []
         self.conversation_state = "initial"  # initial, symptoms_collected, assessed, follow_up
         
+        # Import and initialize symptom extractor
+        from .disease_predictor import SymptomExtractor
+        self.symptom_extractor = SymptomExtractor()
+        
         # Response templates
         self.greeting = """
 👋 **Welcome to SymptoTrack AI!**
@@ -103,7 +107,7 @@ If you have any more questions or want to track new symptoms, I'm here to help.
         
         # Extract symptoms from input
         extracted_symptoms = self.predictor.normalize_symptoms(
-            self.predictor.predictor.symptom_extractor.extract(user_input)
+            self.symptom_extractor.extract(user_input)
         )
         
         # Also check for any symptoms mentioned directly

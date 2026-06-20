@@ -6,10 +6,18 @@ Handles loading and preprocessing healthcare data
 import pandas as pd
 import numpy as np
 from pathlib import Path
+import csv
 
 
 class DataLoader:
     """Loads and preprocesses healthcare data"""
+    
+    # Fixed columns at the end of each row
+    FIXED_COLUMNS = ['severity', 'category', 'description', 'treatment', 'duration']
+    SYMPTOM_VALUES = {'mild', 'moderate', 'high', 'respiratory', 'neurological', 'digestive', 
+                     'endocrine', 'immune', 'blood', 'urinary', 'mental health', 
+                     'musculoskeletal', 'bone', 'skin', 'infectious', 'cardiovascular',
+                     'rest', 'fluids', 'medication', 'ongoing'}
     
     def __init__(self, data_path: str = None):
         if data_path is None:
@@ -21,17 +29,72 @@ class DataLoader:
         self.disease_info = {}
         
     def load_data(self) -> pd.DataFrame:
-        """Load healthcare data from CSV"""
-        self.df = pd.read_csv(self.data_path)
+        """Load healthcare data from CSV with proper parsing"""
+        # Read the CSV manually to handle variable number of symptoms
+        data = []
+        with open(self.data_path, 'r') as f:
+            reader = csv.reader(f)
+            headers = next(reader)  # disease,symptoms,severity,category,description,treatment,duration
+            
+            for row in reader:
+                if not row or not row[0].strip():
+                    continue
+                    
+                disease = row[0].strip()
+                
+                # Find where fixed columns start by looking for severity values
+                # Severity is typically: mild, moderate, or high
+                symptoms = []
+                severity = ""
+                category = ""
+                description = ""
+                treatment = ""
+                duration = ""
+                
+                # Look through the row to find severity
+                for i, val in enumerate(row[1:], 1):
+                    val_lower = val.lower().strip()
+                    if val_lower in {'mild', 'moderate', 'high'}:
+                        # Found severity - remaining values are fixed columns
+                        severity = val.strip()
+                        remaining = row[i+1:]
+                        if len(remaining) >= 4:
+                            category = remaining[0].strip()
+                            description = remaining[1].strip()
+                            treatment = remaining[2].strip()
+                            duration = remaining[3].strip() if len(remaining) > 3 else ""
+                        # Everything before severity is symptoms
+                        symptoms = [row[j].strip() for j in range(1, i)]
+                        break
+                
+                # If we didn't find severity, try category lookup
+                if not severity:
+                    # Last few columns are likely fixed
+                    if len(row) >= 5:
+                        severity = row[-4].strip() if row[-4].lower() in {'mild', 'moderate', 'high'} else "moderate"
+                        category = row[-3].strip()
+                        description = row[-2].strip()
+                        treatment = row[-1].strip() if len(row) > 4 else ""
+                        duration = ""
+                        symptoms = [row[i].strip() for i in range(1, len(row)-4) if row[i].strip()]
+                
+                data.append({
+                    'disease': disease,
+                    'symptoms': ', '.join(symptoms),
+                    'severity': severity,
+                    'category': category,
+                    'description': description,
+                    'treatment': treatment,
+                    'duration': duration
+                })
+        
+        self.df = pd.DataFrame(data)
         self._preprocess_data()
         self._build_disease_info()
         return self.df
     
     def _preprocess_data(self):
         """Preprocess the dataframe"""
-        # Clean column names
-        self.df.columns = self.df.columns.str.strip()
-        
         # Fill NaN values
         self.df = self.df.fillna("")
         
@@ -55,7 +118,7 @@ class DataLoader:
                 }
             
             # Collect all symptoms
-            symptoms = [s.strip().lower() for s in str(row["symptoms"]).split(",")]
+            symptoms = [s.strip().lower() for s in str(row["symptoms"]).split(",") if s.strip()]
             self.disease_info[disease]["symptoms"].extend(symptoms)
             self.disease_info[disease]["symptoms"] = list(set(self.disease_info[disease]["symptoms"]))
     
