@@ -1,0 +1,55 @@
+disease,symptoms,severity,category,description,treatment,duration
+Common Cold,cough,sneezing,runny nose,sore throat,mild,Respiratory,"A viral infection of the upper respiratory tract. Very common and usually harmless.",Rest,fluids,antihistamines,3-7 days
+Common Cold,congestion,headache,fatigue,mild fever,mild,Respiratory,Same as above,Rest,fluids,decongestants,3-7 days
+Flu,cough,sore throat,body aches,fever,moderate,Respiratory,"A viral illness caused by influenza viruses. More severe than a cold.",Rest,antivirals,fever reducers,5-10 days
+Flu,headache,chills,fatigue,high fever,moderate,Respiratory,Same as above,Rest,antivirals,hydration,5-10 days
+COVID-19,fever,cough,fatigue,loss of taste,moderate,Respiratory,"A respiratory illness caused by the SARS-CoV-2 coronavirus.",Isolation,hydration,rest,7-14 days
+COVID-19,difficulty breathing,body aches,headache,moderate,Respiratory,Same as above,Medical care,hydration,isolation,7-14 days
+Migraine,headache,nausea,sensitivity to light,sensitivity to sound,moderate,Neurological,"A recurrent headache causing moderate to severe pain, often on one side.",Rest,dark room,migraine medication,4-72 hours
+Migraine,visual disturbances,throbbing pain,fatigue,moderate,Neurological,Same as above,Rest,dark room,pain relievers,4-72 hours
+Gastroenteritis,nausea,vomiting,diarrhea,stomach pain,mild,Digestive,"Inflammation of the stomach and intestines, usually due to infection.",Hydration,BRAT diet,anti-nausea meds,1-3 days
+Gastroenteritis,fever,headache,dehydration,fatigue,mild,Digestive,Same as above,Hydration,electrolytes,anti-nausea meds,1-3 days
+Food Poisoning,nausea,vomiting,diarrhea,stomach cramps,mild,Digestive,Illness from contaminated food or water.,Hydration,BRAT diet,anti-nausea meds,1-2 days
+Food Poisoning,weakness,dizziness,fever,moderate,Digestive,Same as above,Hydration,medical attention,rest,1-2 days
+Hypertension,headache,shortness of breath,nosebleeds,dizziness,high,Cardiovascular,"High blood pressure that can lead to serious health problems.",Medication,lifestyle changes,diet,s Ongoing
+Hypertension,anxiety,chest pain,vision problems,fatigue,high,Cardiovascular,Same as above,Blood pressure monitoring,medication,diet,Ongoing
+Diabetes,frequent urination,excessive thirst,fatigue,blurred vision,mild,Endocrine,"A chronic condition affecting how the body processes blood sugar.",Diet,exercise,medication,Ongoing
+Diabetes,weight loss,hunger,slow healing,moderate,Endocrine,Same as above,Blood sugar monitoring,diet,medication,Ongoing
+Asthma,wheezing,shortness of breath,chest tightness,coughing,moderate,Respiratory,"A condition causing airway inflammation and narrowing.",Inhaler,avoid triggers,medication,Ongoing
+Asthma,coughing at night,breathing difficulty,moderate,Respiratory,Same as above,Inhaler,avoid allergens,medication,Ongoing
+Allergies,sneezing,itchy eyes,runny nose,skin rash,mild,Immune,"An immune response to substances that are usually harmless.",Antihistamines,avoid allergens,avoid triggers,Ongoing
+Allergies,hives,swelling,difficulty breathing,moderate,Immune,Same as above,Antihistamines,epinephrine (severe),avoid triggers,Ongoing
+Pneumonia,cough,fever,chills,difficulty breathing,high,Respiratory,"A lung infection causing inflammation and fluid buildup.",Antibiotics (if bacterial),rest,hydration,2-4 weeks
+Pneumonia,chest pain,fatigue,mucus production,moderate,Respiratory,Same as above,Medical care,antibiotics,rest,2-4 weeks
+Bronchitis,cough,mucus production,fatigue,shortness of breath,mild,Respiratory,"Inflammation of the bronchial tubes.",Rest,hydration,bronchodilators,1-2 weeks
+Bronchitis,chest discomfort,wheezing,mild fever,mild,Respiratory,Same as above,Rest,hydration,cough medicine,1-2 weeks
+Sinusitis,face pain,nasal congestion,headache,moderate,Respiratory,"Inflammation of the sinus cavities.",Decongestants,nasal spray,antibiotics,2-4 weeks
+Sinusitis,reduced smell,fever,mucus,moderate,Respiratory,Same as above,Nasal irrigation,antibiotics,rest,2-4 weeks
+Anemia,fatigue,weakness,pale skin,dizziness,mild,Blood,"A condition where the blood lacks enough healthy red blood cells.",Iron supplements,diet changes,blood tests,Ongoing
+Anemia,shortness of breath,headache,cold hands,moderate,Blood,Same as above,Blood tests,iron-rich diet,supplements,Ongoing
+Thyroid Disorder,fatigue,weight changes,mood changes,moderate,Endocrine,"Conditions affecting the thyroid gland's function.",Medication,blood tests,monitoring,Ongoing
+Thyroid Disorder,hair loss,sensitivity to temperature,moderate,Endocrine,Same as above,Medication,blood tests,hormone therapy,Ongoing
+Urinary Tract Infection, burning urination,frequent urination,cloudy urine,moderate,Urinary,"An infection in any part of the urinary system.",Antibiotics,hydration,avoid irritants,1-2 weeks
+Urinary Tract Infection,pelvic pain,blood in urine,fever,mild,Urinary,Same as above,Antibiotics,hydration,medical care,1-2 weeks
+Appendicitis,abdominal pain,nausea,vomiting,fever,high,Digestive,"Inflammation of the appendix requiring medical attention.",Medical emergency,Surgery,antibiotics,Immediate
+Appendicitis,loss of appetite,constipation,moderate,Digestive,Same as above,Surgery,medical care,emergency,Immediate
+Gallstones,abdominal pain,nausea,vomiting,yellow skin,moderate,Digestive,"Hardened deposits in the gallbladder.",Medical care,surgery,diet changes,Ongoing
+Gallstones,back pain,bloating,digestion problems,moderate,Digestive,Same as above,Diet modifications,surgery,medication,Ongoing
+Depression,persistent sadness,loss of interest,fatigue,sleep changes,moderate,Mental Health,"A mood disorder causing persistent feelings of sadness.",Therapy,medication,support,Ongoing
+Depression,appetite changes,difficulty concentrating,moderate,Mental Health,Same as above,Counseling,therapy,medication,Ongoing
+Anxiety,excessive worry,restlessness,fatigue,difficulty sleeping,moderate,Mental Health,"A mental health disorder causing persistent anxiety.",Therapy,medication,relaxation,Ongoing
+Anxiety,muscle tension,irritability,panic attacks,moderate,Mental Health,Same as above,Counseling,medication,lifestyle changes,Ongoing
+Arthritis,joint pain,stiffness,swelling,moderate,Musculoskeletal,"Inflammation of one or more joints.",Medication,physical therapy,exercise,Ongoing
+Arthritis,reduced range of motion,fatigue,moderate,Musculoskeletal,Same as above,Exercise,weight management,medication,Ongoing
+Osteoporosis,back pain,stooped posture,fractures,moderate,Bone,"A condition causing weak and brittle bones.",Medication,calcium,vitamin D,Ongoing
+Osteoporosis,loss of height,bone fractures,moderate,Bone,Same as above,Exercise,medication,fall prevention,Ongoing
+Skin Infection,redness,swelling,pain,warmth,mild,Skin,"Bacterial infection of the skin.",Antibiotics,keep clean,rest,1-2 weeks
+Skin Infection,fever,pus,drainage,moderate,Skin,Same as above,Medical care,antibiotics,wound care,1-2 weeks
+Eczema,dry skin,itching,redness,rashes,moderate,Skin,"A condition causing inflamed, itchy skin.",Moisturizers,steroid creams,avoid triggers,Ongoing
+Eczema,flaking,blisters,cracking,moderate,Skin,Same as above,Avoid irritants,medication,skincare,Ongoing
+Conjunctivitis,redness,itching,discharge,watering eyes,mild,Eye,"Inflammation of the conjunctiva (pink eye).",Eye drops,keep clean,avoid touching,1-2 weeks
+Conjunctivitis,crust formation,sensitivity to light,moderate,Eye,Same as above,Antibiotic drops (if bacterial),hygiene,avoid contact,1-2 weeks
+Dengue Fever,high fever,severe headache, joint pain,moderate,Infectious,"A mosquito-borne viral infection.",Rest,hydration,paracetamol,7-10 days
+Dengue Fever,rash,muscle pain,nausea,moderate,Infectious,Same as above,Medical care,hydration,monitoring,7-10 days
+Malaria,fever,chills,sweating,headache,moderate,Infectious,"A mosquito-borne parasitic disease.",Antimalarial medication,prevention,net usage,2-4 weeks
+Malaria,nausea,vomiting,muscle pain,moderate,Infectious,Same as above,Medical care,prevention,treatment,2-4 weeks
