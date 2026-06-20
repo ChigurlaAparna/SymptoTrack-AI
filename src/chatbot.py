@@ -105,24 +105,20 @@ If you have any more questions or want to track new symptoms, I'm here to help.
         if self._is_help_request(user_input_lower):
             return self._handle_help()
         
-        # Extract symptoms from input
-        extracted_symptoms = self.predictor.normalize_symptoms(
-            self.symptom_extractor.extract(user_input)
-        )
+        # Extract symptoms from input using regex patterns only
+        extracted_symptoms = self.symptom_extractor.extract(user_input)
         
-        # Also check for any symptoms mentioned directly
-        words = user_input_lower.replace("?", "").replace(",", " ").split()
-        direct_symptoms = [w for w in words if len(w) > 3]
-        extracted_symptoms = list(set(extracted_symptoms + direct_symptoms))
+        # Normalize symptoms (e.g., "fever" variations -> "fever")
+        normalized_symptoms = self.predictor.normalize_symptoms(extracted_symptoms)
         
-        if not extracted_symptoms:
+        if not normalized_symptoms:
             return Message(
                 content=self.clarification_prompt,
                 message_type=MessageType.ASSISTANT
             )
         
         # Add to current symptoms
-        self.current_symptoms.extend(extracted_symptoms)
+        self.current_symptoms.extend(normalized_symptoms)
         self.current_symptoms = list(set(self.current_symptoms))
         
         # Generate assessment
