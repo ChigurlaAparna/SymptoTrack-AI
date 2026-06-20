@@ -263,6 +263,78 @@ class PrecautionsDatabase:
         if category and category in self.lifestyle_advice:
             return {category: self.lifestyle_advice[category]}
         return self.lifestyle_advice
+    
+    def get_symptom_tips(self, symptoms: List[str]) -> List[str]:
+        """Get tips based on symptoms"""
+        tips = []
+        
+        symptom_tips = {
+            "fever": [
+                "Stay hydrated with water, clear broths, or electrolyte solutions",
+                "Rest and avoid strenuous activities",
+                "Use a light blanket - don't try to sweat it out",
+                "Take fever-reducing medication if needed",
+            ],
+            "cough": [
+                "Honey can help soothe throat irritation",
+                "Stay hydrated to thin mucus",
+                "Use a humidifier to add moisture to air",
+                "Avoid smoking and irritants",
+            ],
+            "headache": [
+                "Rest in a quiet, dark room",
+                "Apply a cold or warm compress to your head",
+                "Stay hydrated",
+                "Consider over-the-counter pain relievers",
+            ],
+            "fatigue": [
+                "Ensure you're getting adequate sleep",
+                "Check for nutritional deficiencies",
+                "Take short breaks throughout the day",
+                "Light exercise can boost energy levels",
+            ],
+            "nausea": [
+                "Eat small, frequent meals",
+                "Avoid strong odors",
+                "Try ginger or peppermint tea",
+                "Stay hydrated with small sips",
+            ],
+            "sore throat": [
+                "Gargle with warm salt water",
+                "Drink warm liquids like tea with honey",
+                "Avoid irritants like smoke",
+                "Use throat lozenges for relief",
+            ],
+            "body aches": [
+                "Rest and avoid strenuous activities",
+                "Apply heat or ice to affected areas",
+                "Take over-the-counter pain relievers",
+                "Gentle stretching may help",
+            ],
+            "congestion": [
+                "Use a humidifier or steam inhalation",
+                "Try nasal saline spray",
+                "Stay hydrated",
+                "Elevate head while sleeping",
+            ],
+        }
+        
+        for symptom in symptoms:
+            symptom_lower = symptom.lower()
+            for key, symptom_tip_list in symptom_tips.items():
+                if key in symptom_lower:
+                    tips.extend(symptom_tip_list)
+                    break
+        
+        if not tips:
+            tips = [
+                "Rest and take care of yourself",
+                "Stay hydrated",
+                "Monitor your symptoms",
+                "Consult a healthcare provider if symptoms persist",
+            ]
+        
+        return tips[:4]  # Return top 4 tips
 
 
 class HealthTips:
